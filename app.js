@@ -47,7 +47,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
   console.log(theTetrominoes[0][0])
   
   let currentPosition = 4
-  let current = theTetrominoes[0][0]
+  let currentRotation = 0
+
+  let random = Math.floor(Math.random()*theTetrominoes.length)
+  let current = theTetrominoes[random][currentRotation]
 
   function draw() {
     current.forEach(index => {
@@ -55,6 +58,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     })
   }
 
-draw()
+function undraw() {
+    current.forEach(index => {
+        squares[currentPosition + index].classList.remove('tetromino')
+    })
+}
 
 })// end of addEventListner
